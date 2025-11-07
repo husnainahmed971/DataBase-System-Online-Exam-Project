@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<style>
+  .jumbotron {
+    margin-bottom: 0px;
+    background-image: url("https://paf-iast.edu.pk/wp-content/uploads/2021/03/home1New.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .jumbotron p.lead,
+  .jumbotron p strong {
+    color: white;
+  }
+  
+  .text-effect {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .text-effect::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FFCC00;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: bottom right;
+  }
+  
+  .text-effect:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, strong, a {
+    font-family: Poppins;
+  }
+  
+  body {
+    background-color: #F2F2F2;
+  }
+</style>
+
+<body>
+  {% include "exam/navbar.html" %}
+  <br>
+  <section id="section-jumbotron" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
+    <div class="container text-center">
+      <h2 class="display-3 text-info text-effect">PAF-IAST </h2>
+      <h2 class="display-4 d-none d-sm-block text-effect" style="font-size: 80px;">Entry Test Examination</h2>
+
+      <!-- <p class="lead">Sign Up now to start your first online examination</p> -->
+
+      <p class="text-effect"><strong>Start Your Journey Here:<br></strong></p>
+     <br><br>
+      <a href="/student/studentsignup" class="btn btn-lg btn-info" style="padding-right: 35px; border-radius: 0%;"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Sign Up as Student</a>
+
+      <br><br><br>
+    </div>
+  </section>
+  {% include "exam/footer.html" %}
+</body>
+
+</html>

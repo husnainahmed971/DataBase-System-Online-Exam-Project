@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      form {
+        margin: 50px; 
+        animation: fadeIn 1s ease-in-out; /* Add animation to the form */
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif; /* Apply Poppins font style to the body */
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    {% include "exam/navbar.html" %}
+ 
+    <br><br><br>
+    <div class="container">
+      <h3 style="text-align: center;">Student Signup Form</h3>
+      <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="first_name">First Name</label>
+            {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="last_name">Last Name</label>
+            {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="mobile">Contact</label>
+            {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Contact Number" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="address">Address</label>
+            {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="username">Username</label>
+            {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="matric_marks">Matric Marks</label>
+            <input type="number" name="matric_marks" id="matric_marks" class="form-control" placeholder="Matric Marks" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="intermediate_part_1_marks">Intermediate Part 1 Marks</label>
+            <input type="number" name="intermediate_part_1_marks" id="intermediate_part_1_marks" class="form-control" placeholder="Intermediate Part 1 Marks" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="profile_pic">Profile Picture</label>
+            {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" style="border-radius: 0%;">Sign Up</button>
+      </form>
+    </div>
+
+    <br><br>
+    {% include "exam/footer.html" %}
+  </body>
+</html>

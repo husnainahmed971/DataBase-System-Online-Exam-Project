@@ -1,0 +1,64 @@
+{% extends 'exam/adminbase.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<h2 style="text-align:center;">Add Question</h2>
+
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="question_type">Question Type</label>
+        <select name="question_type" id="question_type" class="form-control" required>
+            <option value="mcq">Multiple Choice (MCQ)</option>
+        </select>
+        <br>
+
+        <label for="course">Course</label>
+        {{ questionForm.courseID|add_class:"form-control" }}
+        <br>
+
+        <label for="question">Question</label>
+        {{ questionForm.question|add_class:"form-control" }} placeholder="Example: Which one of the following is not a phase of Prototyping Model?" required
+        <br>
+
+        <label for="marks">Marks</label>
+        {{ questionForm.marks|add_class:"form-control" }} placeholder="Example: 5" required
+        <br>
+
+        <label for="option1">Option 1</label>
+        {{ questionForm.option1|add_class:"form-control" }} placeholder="Example: Quick Design" required
+        <br>
+
+        <label for="option2">Option 2</label>
+        {{ questionForm.option2|add_class:"form-control" }} placeholder="Example: Coding" required
+        <br>
+
+        <label for="option3">Option 3</label>
+        {{ questionForm.option3|add_class:"form-control" }} placeholder="Example: Prototype Refinement" required
+        <br>
+
+        <label for="option4">Option 4</label>
+        {{ questionForm.option4|add_class:"form-control" }} placeholder="Example: Engineer Product" required
+        <br>
+
+        <label for="answer">Correct Answer</label>
+        {{ questionForm.answer|add_class:"form-control" }} required
+        <br>      
+    </div>
+
+    <button type="submit" class="btn btn-success" style="border-radius:0px;">Submit Question</button>
+</form>
+<br><br><br>
+{% endblock %}

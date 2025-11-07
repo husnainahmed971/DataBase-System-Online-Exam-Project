@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style media="screen">
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      text-align: center;
+      background-color: #f8f9fa;
+      padding: 60px;
+      animation: fadeIn 1s ease-in-out; /* Add animation to the jumbotron */
+    }
+
+    .jumbotron h1 {
+      margin-bottom: 30px;
+      font-family: 'Poppins', sans-serif; /* Apply Poppins font style to h1 */
+    }
+
+    .start-journey {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+      color: #FFCC00;
+      font-family: 'Poppins', sans-serif; /* Apply Poppins font style to start-journey */
+    }
+
+    .start-journey::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: #FFCC00;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  {% include "exam/navbar.html" %}
+  <br><br>
+  <div class="jumbotron">
+    <h1 class="display-4">Hello Student,</h1>
+    <p class="lead">Welcome to the Online Entry Test Examination System</p>
+    <hr class="my-4">
+    <p>Sign up or Login Now if you're already registered</p>
+    <br><br>
+    <p class="lead">
+      <a class="btn btn-primary" href="studentsignup" style="border-radius: 0%;" role="button">Create Your Account</a>
+      <a class="btn btn-success" href="studentlogin" style="border-radius: 0%;" role="button">Login Now</a>
+    </p>
+    <br>
+    <div class="start-journey">Start Your Journey</div>
+  </div>
+
+  {% include "exam/footer.html" %}
+</body>
+
+</html>
