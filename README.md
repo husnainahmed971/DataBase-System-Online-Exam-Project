@@ -11,5 +11,7 @@ The Online Exam Project is a database-driven web app built with Django. It allow
 ## How to Run:
 
 git clone https://github.com/husnainahmed971/DataBase-System-Online-Exam-Project.git
+
 cd DataBase-System-Online-Exam-Project
+
 python manage.py runserver
